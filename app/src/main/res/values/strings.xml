@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">PLASU Aid</string>
+    <string name="title_alert">Alert</string>
+    <string name="title_tips">Tips</string>
+    <string name="title_profile">Profile</string>
+    <string name="signout_dialog">Do you want to signout?</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fire_service">Phone number of Fire Service</string>
+    <string name="phone_number_of_ambulance">Phone number of Ambulance</string>
+    <string name="phone_number_of_security_agents">Phone number of Security Agents</string>
+    <string name="phone_number_of_fire_service">Phone number of Fire Service</string>
+    <string name="details_string">There is a last trick to get Address from Lat-Long (Geo-coordinates). You can simply hit google-maps web service passing the Latitude and longitude. It is simply a GET-Method web-service.</string>
+</resources>

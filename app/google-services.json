@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "760133493763",
+    "firebase_url": "https://emergency-reporter-93826.firebaseio.com",
+    "project_id": "emergency-reporter-93826",
+    "storage_bucket": "emergency-reporter-93826.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:760133493763:android:57fcf230c93d975a",
+        "android_client_info": {
+          "package_name": "com.eze.chrisantus.emergencyreporter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "760133493763-ehefjmlsd6l6iebsflb80l27hl37ce9v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBEE1KstAro4PJNOucIYDX-Lk26Xvwmdw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "760133493763-ehefjmlsd6l6iebsflb80l27hl37ce9v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

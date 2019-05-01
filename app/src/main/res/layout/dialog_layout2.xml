@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/title"
+        android:text="Choose action to perform"
+        android:textSize="18sp"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp">
+
+        <Button
+            android:layout_width="65dp"
+            android:layout_height="25dp"
+            android:id="@+id/btn_call"
+            android:text="Call"
+            android:textColor="@color/lightPurple"
+            android:background="@drawable/dialog_btn"/>
+
+        <Button
+            android:layout_width="65dp"
+            android:layout_height="25dp"
+            android:id="@+id/btn_sms"
+            android:text="SMS"
+            android:textColor="@color/lightPurple"
+            android:background="@drawable/dialog_btn"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

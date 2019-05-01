@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#93397c</color>
+    <color name="colorPrimaryDark">#5E104A</color>
+    <color name="colorAccent">#EE6002</color>
+    <color name="lightPurple">#EFCCE2</color>
+    <color name="white">#ffffff</color>
+
+
+    <array name="array_dot_inactive">
+        <item>@color/colorPrimary</item>
+        <item>@color/lightPurple</item>
+        <item>@color/lightPurple</item>
+    </array>
+
+    <array name="array_dot_active">
+        <item>@color/lightPurple</item>
+        <item>@color/colorPrimary</item>
+        <item>@color/colorPrimaryDark</item>
+    </array>
+
+</resources>

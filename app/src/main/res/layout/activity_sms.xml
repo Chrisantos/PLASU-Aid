@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SMSActivity">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/ed_msg"
+        android:hint="Message"
+        android:imeOptions="actionDone"
+        android:inputType="textMultiLine"
+        android:background="@drawable/ed_btn_white"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingLeft="5dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:layout_below="@id/text"/>
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:id="@+id/btn_send"
+        android:text="Send"
+        android:textColor="@color/lightPurple"
+        android:background="@drawable/dialog_btn"
+        android:layout_below="@id/ed_msg"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/btn_send"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text1"
+            android:text="Send default message instead?"
+            android:layout_marginLeft="20dp"/>
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="37dp"
+            android:id="@+id/btn_yes"
+            android:layout_marginLeft="5dp"
+            android:text="Yes"
+            android:textSize="12sp"
+            android:textColor="@color/colorPrimaryDark"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TipsFragment">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rlayout_security"
+        android:layout_marginTop="120dp">
+
+        <Button
+            android:layout_width="270dp"
+            android:layout_height="40dp"
+            android:id="@+id/btn_security1"
+            android:text="Security"
+            android:textColor="@color/lightPurple"
+            android:background="@drawable/first_half"/>
+
+        <Button
+            android:layout_width="90dp"
+            android:layout_height="40dp"
+            android:id="@+id/btn_security2"
+            android:textColor="@color/lightPurple"
+            android:background="@drawable/second_half"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rlayout_clinical"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/rlayout_security">
+
+        <Button
+            android:layout_width="210dp"
+            android:layout_height="40dp"
+            android:id="@+id/btn_clinical1"
+            android:text="Clinical"
+            android:textColor="@color/lightPurple"
+            android:background="@drawable/first_half"/>
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:id="@+id/btn_clinical2"
+            android:textColor="@color/lightPurple"
+            android:background="@drawable/second_half"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rlayout_fire"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/rlayout_clinical">
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:id="@+id/btn_fire1"
+            android:text="Fire"
+            android:textColor="@color/lightPurple"
+            android:background="@drawable/first_half"/>
+
+        <Button
+            android:layout_width="210dp"
+            android:layout_height="40dp"
+            android:id="@+id/btn_fire2"
+            android:textColor="@color/lightPurple"
+            android:background="@drawable/second_half"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
