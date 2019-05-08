@@ -93,6 +93,9 @@ public class AdminMainActivity extends AppCompatActivity {
         } else if (id == R.id.profile) {
             startActivity(new Intent(this, AdminProfileActivity.class));
             finish();
+        } else if (id == R.id.users) {
+            startActivity(new Intent(this, UsersActivity.class));
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }

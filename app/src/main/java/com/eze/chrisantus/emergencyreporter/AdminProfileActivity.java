@@ -23,6 +23,7 @@ public class AdminProfileActivity extends AppCompatActivity {
                 .replace(R.id.content, fragment)
                 .commit();
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
@@ -30,6 +31,7 @@ public class AdminProfileActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();

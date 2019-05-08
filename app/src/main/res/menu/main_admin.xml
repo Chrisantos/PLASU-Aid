@@ -7,6 +7,10 @@
         android:icon="@drawable/logout"
         app:showAsAction="always"/>
     <item
+        android:id="@+id/users"
+        android:title="View Users"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/settings"
         android:title="Settings"
         app:showAsAction="never"/>

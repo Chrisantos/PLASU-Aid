@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import com.eze.chrisantus.emergencyreporter.Utils.Constants;
 import com.eze.chrisantus.emergencyreporter.Utils.PersistData;
+import com.eze.chrisantus.emergencyreporter.Utils.UserPOJO;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -157,7 +158,25 @@ public class RegisterActivity extends AppCompatActivity {
                         FirebaseUser user = mAuth.getCurrentUser();
                         final String uID = user.getUid();
 
-                        Map<String, String> userMap = new HashMap<>();
+                        UserPOJO userPOJO = new UserPOJO();
+                        userPOJO.setName(name);
+                        userPOJO.setBloodgroup(bloodgroup);
+                        userPOJO.setEmail(email);
+                        userPOJO.setPhone("2343");
+                        userPOJO.setLevel("null");
+                        userPOJO.setDept("null");
+                        userPOJO.setMatno("null");
+                        userPOJO.setGender("null");
+                        userPOJO.setGuardian_phone_no("null");
+
+                        if (email.contains(Constants.authorizedAdmin)) {
+                            userPOJO.setAuthtype("admin");
+                        } else {
+                            userPOJO.setAuthtype(authtype.toLowerCase());
+                        }
+
+
+                        /*Map<String, String> userMap = new HashMap<>();
                         userMap.put("name", name);
                         userMap.put("bloodgroup", bloodgroup);
                         userMap.put("email", email);
@@ -174,44 +193,48 @@ public class RegisterActivity extends AppCompatActivity {
                             userMap.put("authtype", authtype.toLowerCase());
                         }
 
-                        mUserDatabase.child(uID).setValue(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        mUserDatabase.child(uID).setValue(userMap).addOnCompleteListener(new OnCompleteListener<Void>() { */
+                        mUserDatabase.push().setValue(userPOJO)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    String nAuthtype;
-                                    if (email.contains(Constants.authorizedAdmin)) {
-                                        nAuthtype = "admin";
-                                    } else {
-                                        nAuthtype = authtype.toLowerCase();
-                                    }
-                                    new PersistData(getApplicationContext()).setUserDetails(name, email, "", "",
-                                            "", "", "", bloodgroup, "", nAuthtype);
+                            public void onSuccess(Void aVoid) {
+                                String nAuthtype;
+                                if (email.contains(Constants.authorizedAdmin)) {
+                                    nAuthtype = "admin";
+                                } else {
+                                    nAuthtype = authtype.toLowerCase();
+                                }
+                                new PersistData(getApplicationContext()).setUserDetails(name, email, "", "",
+                                        "", "", "", bloodgroup, "", nAuthtype);
 
-                                    Intent intent;
-                                    if (email.contains(Constants.authorizedAdmin)) {
-                                        intent = new Intent(getApplicationContext(), AdminMainActivity.class);
-
-                                    } else {
-                                        intent = new Intent(getApplicationContext(), MainActivity.class);
-
-                                    }
-
-                                    if (mCheckbox.isChecked()) {
-                                        intent.putExtra(IS_CHECKED, true);
-                                    } else {
-                                        intent.putExtra(IS_CHECKED, false);
-                                    }
-                                    startActivity(intent);
-                                    finish();
+                                Intent intent;
+                                if (email.contains(Constants.authorizedAdmin)) {
+                                    intent = new Intent(getApplicationContext(), AdminMainActivity.class);
 
                                 } else {
-                                    Toast.makeText(RegisterActivity.this, "Database creation failed.",
-                                            Toast.LENGTH_SHORT).show();
+                                    intent = new Intent(getApplicationContext(), MainActivity.class);
+
                                 }
+                                mProgressbar.setVisibility(View.GONE);
+                                mBtnSignup.setEnabled(true);
+
+                                if (mCheckbox.isChecked()) {
+                                    intent.putExtra(IS_CHECKED, true);
+                                } else {
+                                    intent.putExtra(IS_CHECKED, false);
+                                }
+                                startActivity(intent);
+                                finish();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(RegisterActivity.this, "Database creation failed.",
+                                        Toast.LENGTH_SHORT).show();
+                                mProgressbar.setVisibility(View.GONE);
+                                mBtnSignup.setEnabled(true);
                             }
                         });
-                        mProgressbar.setVisibility(View.GONE);
-                        mBtnSignup.setEnabled(true);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

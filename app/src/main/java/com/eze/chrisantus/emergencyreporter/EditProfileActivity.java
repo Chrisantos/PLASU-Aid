@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.eze.chrisantus.emergencyreporter.Utils.Constants;
 import com.eze.chrisantus.emergencyreporter.Utils.PersistData;
+import com.eze.chrisantus.emergencyreporter.Utils.UserPOJO;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -179,16 +180,23 @@ public class EditProfileActivity extends AppCompatActivity {
 
     private void editDetails(final String name, final String matno, final String level, final String dept, final String phone,
                              final String gender, final String bloodgroup, final String guardian_no) {
-        Map<String, String> userMap = new HashMap<>();
+        UserPOJO userPOJO = new UserPOJO();
+        userPOJO.setName(name);
+        userPOJO.setEmail(mUser.getEmail());
+        userPOJO.setPhone(phone);
+        userPOJO.setLevel(level);
+        userPOJO.setDept(dept);
+        userPOJO.setMatno(matno);
 
 
-        userMap.put("name", name);
-        userMap.put("phone", phone);
-        userMap.put("level", level);
-        userMap.put("dept", dept);
-        userMap.put("matno", matno);
-        userMap.put("email", mUser.getEmail());
-        userMap.put("authtype", persistData.getAuthtype());
+//        Map<String, String> userMap = new HashMap<>();
+//        userMap.put("name", name);
+//        userMap.put("phone", phone);
+//        userMap.put("level", level);
+//        userMap.put("dept", dept);
+//        userMap.put("matno", matno);
+//        userMap.put("email", mUser.getEmail());
+//        userMap.put("authtype", persistData.getAuthtype());
 
         if (bloodgroup.equals("Blood Group")) {
             Toast.makeText(this, "Invalid blood group selected", Toast.LENGTH_SHORT).show();
@@ -196,7 +204,8 @@ public class EditProfileActivity extends AppCompatActivity {
             return;
 
         } else {
-            userMap.put("bloodgroup", bloodgroup);
+            userPOJO.setBloodgroup(bloodgroup);
+//            userMap.put("bloodgroup", bloodgroup);
         }
 
         if (gender.equals("Gender")) {
@@ -205,12 +214,15 @@ public class EditProfileActivity extends AppCompatActivity {
             return;
 
         } else {
-            userMap.put("gender", gender);
+            userPOJO.setGender(gender);
+//            userMap.put("gender", gender);
         }
 
-        userMap.put("guardian_phone_no", guardian_no);
+        userPOJO.setGuardian_phone_no(guardian_no);
+//        userMap.put("guardian_phone_no", guardian_no);
 
-        mUserDatabase.child(mUser.getUid()).setValue(userMap).addOnCompleteListener(
+//        mUserDatabase.child(mUser.getUid()).setValue(userMap).addOnCompleteListener(
+        mUserDatabase.child(mUser.getUid()).push().setValue(userPOJO).addOnCompleteListener(
                 new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
