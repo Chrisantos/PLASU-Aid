@@ -56,7 +56,8 @@
         <activity
             android:name=".AdminProfileActivity"
             android:label="Profile" />
-        <activity android:name=".UsersActivity" />
+        <activity android:name=".UsersActivity"
+            android:label="Users"/>
         <activity android:name=".UserProfileActivity"
             android:label="Profile"></activity>
     </application>
